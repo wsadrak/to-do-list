@@ -1,8 +1,8 @@
 
-public class TaskController {
-
+public class ApplicationController {
 	private DataReader dataReader = new DataReader();
-
+	private ListController database = new ListController();
+	
 	public void mainLoop() {
 		Option option;
 		do {
@@ -31,6 +31,7 @@ public class TaskController {
 
 	private void addTask() {
 		System.out.println("add task");
+		database.addNewTask();
 	}
 
 	private void editTask() {
@@ -45,6 +46,8 @@ public class TaskController {
 
 	private void showTasks() {
 		System.out.println("show task");
+		
+		database.showTasks();
 	}
 
 	private void exit() {
