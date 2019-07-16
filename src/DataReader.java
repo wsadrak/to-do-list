@@ -13,11 +13,12 @@ public class DataReader {
 		}
 	}
 
-	private String readInput() {
+	public String readInput() {
 		return scanner.nextLine();
 	}
 	
 	public void close() {
 		scanner.close();
 	}
+
 }
