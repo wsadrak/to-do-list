@@ -1,7 +1,15 @@
+package application;
+import io.ConsolePrinter;
+import io.DataReader;
+import model.Database;
+import model.Option;
+import model.Task;
 
 public class ApplicationController {
-	private DataReader dataReader = new DataReader();
-	private ListController database = new ListController();
+	private ConsolePrinter printer = new ConsolePrinter();
+	private DataReader dataReader = new DataReader(printer);
+	
+	private Database database = new Database();
 	
 	public void mainLoop() {
 		Option option;
@@ -30,8 +38,9 @@ public class ApplicationController {
 	}
 
 	private void addTask() {
-		System.out.println("add task");
-		database.addNewTask();
+		
+		Task newTask = dataReader.readAndCreateTask();
+		database.addTask(newTask);
 	}
 
 	private void editTask() {
@@ -45,9 +54,8 @@ public class ApplicationController {
 	}
 
 	private void showTasks() {
-		System.out.println("show task");
-		
 		database.showTasks();
+		printer.printTasks(database);
 	}
 
 	private void exit() {
@@ -66,7 +74,7 @@ public class ApplicationController {
 	}
 
 	private void printMenu() {
-		System.out.println("Choose the option: ");
+		printer.printLine("Choose the option: ");
 		for (Option option : Option.values()) {
 			System.out.println(option);
 		}
