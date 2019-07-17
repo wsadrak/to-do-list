@@ -1,3 +1,4 @@
+package model;
 import java.time.LocalDate;
 
 public class Task {
@@ -6,7 +7,7 @@ public class Task {
 	Priority priority;
 	LocalDate date;
 	
-	Task(String description, Priority priority, LocalDate date) {
+	public Task(String description, Priority priority, LocalDate date) {
 		this.description = description;
 		this.priority = priority;
 		this.date = date;
@@ -14,9 +15,10 @@ public class Task {
 
 	@Override
 	public String toString() {
-		return "Task [description=" + description + ", priority=" + priority + ", date=" + date + "]";
+		return description + " | " + date + " | " + priority;
 	}
-	
+
+
 	
 	
 }
