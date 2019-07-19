@@ -97,12 +97,12 @@ public class ApplicationController {
 	}
 
 	private void printDefault() {
-		// TODO Auto-generated method stub
+		printer.printTasks(database.getSortedDefault());
 
 	}
 
 	private void printByDate() {
-		// TODO Auto-generated method stub
+		printer.printTasks(database.getSortedByDate());
 
 	}
 
